@@ -17,7 +17,7 @@ fn main() {
     loop {
         temperature_input.clear(); //clear string from possible previous iterations
 
-        println!("\nEnter temperature followed by C or F to indicate temperature_metric used:");
+        println!("\nEnter temperature followed by C or F to indicate temperature unit:");
 
         io::stdin().read_line(&mut temperature_input)
             .expect("Failed to read line");
@@ -41,7 +41,6 @@ fn main() {
                     let metric_vec: Vec<char> = metric.to_string().chars().collect();
                     match metric_vec.len() {
                         1 => {
-                            //let temperature_metric = metric_vec[0];
                             match metric_vec[0] {
                                 'C' | 'c' | 'F' | 'f' => temperature_metric = metric_vec[0],
                                 _ => {  println!("invalid metric designation");
